@@ -14,7 +14,7 @@
     "@lottiefiles/react-lottie-player": "^3.5.3",
     "@react-hook/resize-observer": "^2.0.2",
     "@uidotdev/usehooks": "^2.4.1",
-    "next": "14.2.6",
+    "next": "14.2.18",
     "react": "^18",
     "react-device-detect": "^2.2.3",
     "react-dom": "^18",

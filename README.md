@@ -31,6 +31,8 @@ Create a `.env` file in the root of the project and add the following:
 DEEPGRAM_API_KEY=<your-deepgram-api-key>
 ```
 
+Note: When creating the API Key make sure to select "Member" as the role and not "Default" so that the API Key has permissions to create new API Keys.
+
 See `sample.env.local` for more details.
 
 ### Use a CLI-compatible password manager

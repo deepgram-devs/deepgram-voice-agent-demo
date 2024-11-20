@@ -23,7 +23,7 @@ const DeepgramContextProvider = ({ children }) => {
 
     setSocketState(0); // connecting
 
-    const newSocket = new WebSocket("wss://sts.sandbox.deepgram.com/agent", [
+    const newSocket = new WebSocket("wss://agent.deepgram.com/agent", [
       "token",
       await getApiKey(),
     ]);
