@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useState, useRef } from "react";
-import { getApiKey, sendKeepAliveMessage } from "app/utils/deepgramUtils";
+import { getAuthToken, sendKeepAliveMessage } from "app/utils/deepgramUtils";
 
 const DeepgramContext = createContext();
 
@@ -24,8 +24,8 @@ const DeepgramContextProvider = ({ children }) => {
     setSocketState(0); // connecting
 
     const newSocket = new WebSocket("wss://agent.deepgram.com/v1/agent/converse", [
-      "token",
-      await getApiKey(),
+      "bearer",
+      await getAuthToken(),
     ]);
 
     const onOpen = () => {

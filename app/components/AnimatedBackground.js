@@ -1,8 +1,13 @@
 "use client";
 
 import React from "react";
-import { Player } from "@lottiefiles/react-lottie-player";
+import dynamic from "next/dynamic";
 import { withBasePath } from "../utils/deepgramUtils";
+
+const Player = dynamic(
+  () => import("@lottiefiles/react-lottie-player").then((mod) => mod.Player),
+  { ssr: false }
+);
 
 const AnimatedBackground = ({ children }) => {
   return (

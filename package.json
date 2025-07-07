@@ -10,7 +10,7 @@
     "prettier": "prettier"
   },
   "dependencies": {
-    "@deepgram/sdk": "^3.5.1",
+    "@deepgram/sdk": "^4.5.1",
     "@lottiefiles/react-lottie-player": "^3.5.3",
     "@react-hook/resize-observer": "^2.0.2",
     "@uidotdev/usehooks": "^2.4.1",

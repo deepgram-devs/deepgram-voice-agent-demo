@@ -14,34 +14,11 @@ export async function POST() {
   }
 
   const deepgram = createClient(process.env.DEEPGRAM_API_KEY ?? "");
+  let { result: token, error: tokenError } = await deepgram.auth.grantToken();
 
-  let { result: projectsResult, error: projectsError } = await deepgram.manage.getProjects();
-
-  if (projectsError) {
-    return NextResponse.json(projectsError);
+  if (tokenError) {
+    return NextResponse.json(tokenError);
   }
 
-  const project = projectsResult?.projects[0];
-
-  if (!project) {
-    return NextResponse.json(
-      new DeepgramError("Cannot find a Deepgram project. Please create a project first."),
-    );
-  }
-
-  let { result: newKeyResult, error: newKeyError } = await deepgram.manage.createProjectKey(
-    project.project_id,
-    {
-      comment: "Temporary API key",
-      scopes: ["usage:write"],
-      tags: ["next.js"],
-      time_to_live_in_seconds: 10,
-    },
-  );
-
-  if (newKeyError) {
-    return NextResponse.json(newKeyError);
-  }
-
-  return NextResponse.json({ ...newKeyResult });
+  return NextResponse.json({ ...token });
 }

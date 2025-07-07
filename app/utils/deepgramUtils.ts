@@ -1,10 +1,10 @@
 import { convertFloat32ToInt16, downsample } from "../utils/audioUtils";
 import nextConfig from "next.config.mjs";
 
-export const getApiKey = async () => {
+export const getAuthToken = async () => {
   const result = await (await fetch(withBasePath("/api/authenticate"), { method: "POST" })).json();
 
-  return result.key;
+  return result.access_token;
 };
 
 export const sendMicToSocket = (socket: WebSocket) => (event: AudioProcessingEvent) => {
